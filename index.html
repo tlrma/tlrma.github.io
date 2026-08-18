@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>황시은 | Robotics · Embedded Portfolio</title>
+<title>시은 | Robotics · Embedded Portfolio</title>
 <meta name="description" content="임베디드 시스템과 AI를 결합한 문제 해결. 센서 기반 제어, Computer Vision, ROS 2, 웹 서비스 개발 경험." />
-<meta property="og:title" content="황시은 | Robotics · Embedded Portfolio" />
+<meta property="og:title" content="시은 | Robotics · Embedded Portfolio" />
 <meta property="og:description" content="임베디드 시스템과 AI를 결합한 문제 해결." />
 <meta property="og:type" content="website" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
@@ -301,6 +301,13 @@ h1.hero-name .ln:nth-child(2) i{animation-delay:.09s;}
 .blk ul ul li{font-size:13.5px;color:var(--muted);}
 .blk ul ul li::before{width:5px;height:1px;border-radius:0;top:12px;}
 .blk ul li b{color:var(--fg);font-weight:650;}
+.blk code{font-family:var(--mono);font-size:.85em;background:var(--chip);padding:2px 6px;border-radius:5px;color:var(--fg);}
+.blk table{border-collapse:collapse;width:100%;font-size:13px;margin:0;display:block;overflow-x:auto;}
+.blk th,.blk td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;}
+.blk th{background:var(--bg-soft);color:var(--fg);font-weight:650;font-size:11.5px;white-space:nowrap;letter-spacing:.01em;}
+.blk td{color:var(--fg-2);}
+.blk td b{color:var(--fg);}
+.sys-item h4 .lim{font-family:var(--mono);font-size:10px;font-weight:500;background:transparent;border:1px solid var(--line);color:var(--muted);padding:2px 7px;border-radius:5px;letter-spacing:.05em;}
 
 /* system config sub-cards */
 .sys{display:grid;gap:10px;}
@@ -343,6 +350,7 @@ h1.hero-name .ln:nth-child(2) i{animation-delay:.09s;}
 .tab.on{color:var(--fg);}
 .tab.on::after{content:"";position:absolute;left:10px;right:10px;bottom:-1px;height:2px;background:var(--fg);border-radius:2px;}
 .tab-spacer{flex:1;}
+.tab[hidden],.tab-src[hidden]{display:none;}
 .tab-src{
   display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--muted);
   padding:12px 2px 12px 0;letter-spacing:.03em;min-width:0;transition:color .2s;
@@ -552,7 +560,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
 <section class="hero" id="top">
   <div class="hero-grid"></div>
   <div class="wrap">
-    <div class="tagline"><span class="live"></span>SSAFY 15기 · 로봇 트랙 수료 중</div>
+    <div class="tagline"><span class="live"></span>SAMSUNG SW·AI ACADEMY FOR YOUTH 15기 · 임베디드 로봇 트랙 수료 중</div>
     <h1 class="hero-name">
       <span class="ln"><i>Embedded</i></span>
       <span class="ln"><i>&amp; Robotics.</i></span>
@@ -614,7 +622,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
           <div class="info-row"><dt>Name</dt><dd>황시은 <small>Hwang Sieun</small></dd></div>
           <div class="info-row"><dt>Field</dt><dd>Embedded · Robotics · Middleware</dd></div>
           <div class="info-row"><dt>Education</dt><dd>국민대학교 전자공학부 지능전자공학전공 </dd></div>
-          <div class="info-row"><dt>Now</dt><dd>SSAFY 15기 로봇 트랙 <small>2026.01 ~ 현재</small></dd></div>
+          <div class="info-row"><dt>Now</dt><dd>SAMSUNG SW·AI ACADEMY FOR YOUTH 15기 로봇 트랙 <small>2026.01 ~ 현재</small></dd></div>
           <div class="info-row"><dt>Email</dt><dd><a href="mailto:onono1141@gmail.com" style="border-bottom:1px solid var(--line)">onono1141@gmail.com</a></dd></div>
           <div class="info-row"><dt>GitHub</dt><dd><a href="https://github.com/tlrma" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">github.com/tlrma</a></dd></div>
         </dl>
@@ -629,7 +637,6 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
     <div class="sec-head rv">
       <div class="sec-num">02 &nbsp;/&nbsp; SKILLS</div>
       <h2 class="sec-title">Skills</h2>
-      <p class="sec-desc"></p>
     </div>
     <div class="skills-grid">
 
@@ -653,6 +660,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         <p class="skill-note">멀티로봇 통신과 자율주행 스택</p>
         <div class="chips">
           <span class="chip key">ROS 2</span><span class="chip key">ROS 1</span><span class="chip key">Nav2</span>
+          <span class="chip key">MAVROS</span><span class="chip">MAVLink</span><span class="chip">PX4 / Pixhawk</span>
           <span class="chip">SLAM (slam_toolbox)</span><span class="chip">AMCL</span>
           <span class="chip">rosbridge</span><span class="chip">TurtleBot</span><span class="chip">Dobot</span>
         </div>
@@ -665,8 +673,9 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
         <p class="skill-note">MCU 펌웨어부터 엣지 디바이스까지</p>
         <div class="chips">
-          <span class="chip key">ATmega128</span><span class="chip key">UART</span>
-          <span class="chip">Jetson Nano</span><span class="chip">Timer / Interrupt</span>
+          <span class="chip key">ATmega128</span><span class="chip key">UART</span><span class="chip key">ADC</span>
+          <span class="chip">Timer / External Interrupt</span><span class="chip">Jetson Nano</span>
+          <span class="chip">Intel RealSense D435</span>
           <span class="chip">MQ-3 Sensor</span><span class="chip">Touch / Switch Sensor</span>
         </div>
       </div>
@@ -678,7 +687,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
         <p class="skill-note">검출·분류 모델 학습과 파이프라인 최적화</p>
         <div class="chips">
-          <span class="chip key">YOLOv8</span><span class="chip key">OpenCV</span><span class="chip">PyTorch</span>
+          <span class="chip key">YOLOv8</span><span class="chip key">YOLOv5</span><span class="chip key">OpenCV</span><span class="chip">PyTorch</span>
           <span class="chip">ResNet18</span><span class="chip">K-NN</span>
           <span class="chip">Camera Calibration</span><span class="chip">Homography</span>
         </div>
@@ -719,13 +728,12 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
     <div class="sec-head rv">
       <div class="sec-num">03 &nbsp;/&nbsp; PROJECTS</div>
       <h2 class="sec-title">Projects</h2>
-      <p class="sec-desc"></p>
     </div>
 
     <div class="proj-list">
 
       <!-- data-repo 에 "소유자/저장소이름" 을 적으면 해당 README 를 자동으로 불러옵니다. 비워두면 README 탭이 표시되지 않습니다. -->
-      <button class="proj rv" data-modal="p1" data-repo="">
+      <button class="proj rv" data-modal="p1" data-repo="tlrma/SelfFound">
         <span class="proj-num">01</span>
         <span class="proj-main">
           <h3>멀티로봇 협업 기반 무인 분실물 센터</h3>
@@ -744,9 +752,9 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         <span class="proj-main">
           <h3>ATmega128 기반 안전한 전동 킥보드 시스템</h3>
           <span class="proj-role"><em>임베디드 프로젝트</em><em>헬멧부 · UART 통신 담당</em></span>
-          <p>헬멧 착용, 음주 여부, 양손 핸들링이라는 세 가지 안전 조건을 모두 만족해야만 작동하는 킥보드 제어 시스템.</p>
+          <p>헬멧 착용, 음주 여부, 양손 핸들링이라는 세 가지 안전 조건을 모두 만족해야만 작동하는 킥보드 제어 시스템. 두 보드를 1바이트 UART 패킷으로 잇고, 주행 중에도 1초 주기 타이머 인터럽트로 조건을 계속 감시합니다.</p>
           <span class="chips">
-            <span class="chip">ATmega128</span><span class="chip">UART</span><span class="chip">MQ-3</span><span class="chip">Touch Sensor</span><span class="chip">C</span>
+            <span class="chip">ATmega128</span><span class="chip">UART</span><span class="chip">ADC</span><span class="chip">Interrupt</span><span class="chip">MQ-3</span><span class="chip">C</span>
           </span>
         </span>
         <span class="proj-open">자세히 보기 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -756,10 +764,10 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         <span class="proj-num">03</span>
         <span class="proj-main">
           <h3>타겟 드론 Following 드론 시스템</h3>
-          <span class="proj-role"><em>팀 프로젝트</em><em>모델 학습 · 파이프라인 · 최적화 담당</em></span>
-          <p>전면 카메라 영상에서 타겟 드론을 검출하고, bounding box의 크기와 좌표로 상대 위치를 추정해 따라가는 ROS 기반 추적 시스템.</p>
+          <span class="proj-role"><em>팀 프로젝트</em><em>인식·제어 노드 담당</em><em>2024 하계통신학회 발표</em></span>
+          <p>GPS가 닿지 않는 실내에서 바운딩 박스만으로 상대 위치를 추정해 타겟 드론을 따라가는 시스템. 인식과 제어를 별도 ROS 노드로 분리해 PX4 OFFBOARD 제어 주기를 20Hz로 고정했습니다.</p>
           <span class="chips">
-            <span class="chip">ROS</span><span class="chip">Jetson Nano</span><span class="chip">Object Detection</span><span class="chip">Python</span>
+            <span class="chip">ROS</span><span class="chip">YOLOv5</span><span class="chip">PX4 / MAVROS</span><span class="chip">RealSense D435</span><span class="chip">Jetson Nano</span><span class="chip">Python</span>
           </span>
         </span>
         <span class="proj-open">자세히 보기 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -808,7 +816,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
       <div class="tl-item now rv">
         <div class="tl-date">2026.01 ~ 현재</div>
         <h3>Samsung SW·AI Academy For Youth 15기 <span class="badge-now">IN PROGRESS</span></h3>
-        <p>임베디드 로봇 트랙. 로봇·임베디드 기반 문제 해결 역량을 프로젝트 중심으로 학습하고 있습니다. ROS&nbsp;2 멀티로봇 협업, 비전 파이프라인, 자율주행 스택을 실제 하드웨어에 올려 검증했습니다.</p>
+        <p>로봇 트랙. 로봇·임베디드 기반 문제 해결 역량을 프로젝트 중심으로 학습하고 있습니다. ROS&nbsp;2 멀티로봇 협업, 비전 파이프라인, 자율주행 스택을 실제 하드웨어에 올려 검증했습니다.</p>
         <div class="chips">
           <span class="chip">Robot Track</span><span class="chip">ROS 2</span><span class="chip">Embedded</span><span class="chip">Project Based Learning</span>
         </div>
@@ -1012,24 +1020,88 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
       <h3 class="blk-h">시스템 구성</h3>
       <div class="sys">
         <div class="sys-item">
-          <h4>헬멧부 <span class="own">MY PART</span></h4>
+          <h4>헬멧부 · ATmega128 <span class="own">MY PART</span></h4>
           <ul>
-            <li>스위치 센서를 이용한 헬멧 착용 여부 확인</li>
-            <li>MQ-3 센서를 이용한 음주 수치 측정</li>
-            <li>측정 데이터를 킥보드부로 전송</li>
+            <li>MQ-3 알코올 센서를 ADC로 읽어 음주 수치 측정</li>
+            <li>스위치 센서로 헬멧 착용 여부 확인</li>
+            <li>두 값을 <b>1바이트 UART 패킷</b>으로 묶어 킥보드부에 전송</li>
           </ul>
         </div>
         <div class="sys-item">
-          <h4>킥보드부</h4>
+          <h4>킥보드부 · ATmega128</h4>
           <ul>
-            <li>손잡이 양쪽 터치 센서를 이용한 양손 핸들링 확인</li>
-            <li>운행 시간, 요금, 조명 제어</li>
-            <li>주행 중에도 안전 조건을 지속적으로 검사</li>
-            <li>조건 위반 시 운행 종료 후 요금 정산</li>
+            <li>수신 후 안전 조건 판단 → 모터 제어</li>
+            <li>손잡이 양쪽 터치 센서로 양손 파지 확인</li>
+            <li>LCD 표시, 조도 센서 기반 자동 조명, 운행 시간·요금 계산</li>
+            <li>주행 중에도 안전 조건을 지속 검사하고, 위반 시 운행 종료 후 요금 정산</li>
           </ul>
         </div>
       </div>
     </div>
+
+    <div class="blk">
+      <h3 class="blk-h">알코올 센서 ADC 처리</h3>
+      <ul>
+        <li>알코올 농도 → 센서 저항 변화 → 아날로그 전압 변화의 경로로 감지합니다.</li>
+        <li>ATmega128의 <b>10비트 ADC</b>로 0~1023 값으로 변환합니다. <code>ADC값 = (입력전압 / 기준전압 5V) × 1023</code></li>
+        <li><code>measure_alcohol()</code>에서 ADC 값을 읽고 100으로 나눠 정규화한 뒤, UART 패킷 상위 4비트에 패킹합니다.</li>
+        <li>테스트는 실제 음주 대신 고농도 에탄올(손소독제)로 센서 반응을 확인했습니다.</li>
+        <li><b>한계</b> — 혈중 알코올 농도 단위까지의 정확한 캘리브레이션은 하지 못했습니다.</li>
+      </ul>
+    </div>
+
+    <div class="blk">
+      <h3 class="blk-h">UART 패킷 설계 — 1바이트 패킹</h3>
+      <table>
+        <thead><tr><th>비트</th><th>내용</th><th>판정</th></tr></thead>
+        <tbody>
+          <tr><td><b>상위 4비트</b></td><td>알코올 값</td><td><code>fromhelmet &gt;= 0x40</code> → 음주</td></tr>
+          <tr><td><b>하위 1비트</b></td><td>헬멧 착용 여부</td><td><code>fromhelmet &amp; 0x01</code> → 착용</td></tr>
+        </tbody>
+      </table>
+      <ul style="margin-top:14px">
+        <li>1초 주기 타이머 인터럽트로 전송합니다.</li>
+        <li><b>한계</b> — 체크섬이 없었습니다. 지금이라면 CRC와 양방향 응답(ACK)을 넣겠습니다.</li>
+      </ul>
+    </div>
+
+    <div class="blk">
+      <h3 class="blk-h">인터럽트 설계</h3>
+      <div class="sys">
+        <div class="sys-item">
+          <h4>타이머 <code>TIMER1_OVF</code></h4>
+          <ul><li>1초 주기로 안전 상태 감시 + LCD 갱신 + UART 송신</li></ul>
+        </div>
+        <div class="sys-item">
+          <h4>UART 수신 <code>SIG_UART1_RECV</code></h4>
+          <ul><li>수신 즉시 <code>fromhelmet</code> 변수 갱신만 수행 (ISR 최소화)</li></ul>
+        </div>
+        <div class="sys-item">
+          <h4>외부 인터럽트 <code>INT0</code></h4>
+          <ul><li>버튼. 라이징/폴링 엣지를 전환해 딜레이 없이 모터 ON/OFF</li></ul>
+        </div>
+      </div>
+      <p style="margin-top:13px"><b>ISR을 최소화한 이유</b> — ISR이 길어지면 메인 루프가 블로킹되고, 타이머 주기가 어긋나며, 그 사이 들어온 인터럽트를 놓칠 수 있습니다.</p>
+    </div>
+
+    <div class="blk">
+      <h3 class="blk-h">상태 관리와 Fail-Safe</h3>
+      <table>
+        <thead><tr><th>cnt</th><th>상태</th></tr></thead>
+        <tbody>
+          <tr><td><b>0</b></td><td>대기</td></tr>
+          <tr><td><b>1</b></td><td>헬멧 착용 확인</td></tr>
+          <tr><td><b>2</b></td><td>알코올 수치 확인</td></tr>
+          <tr><td><b>3</b></td><td>양손 파지 확인</td></tr>
+          <tr><td><b>4~6</b></td><td>주행</td></tr>
+        </tbody>
+      </table>
+      <ul style="margin-top:14px">
+        <li>주행에 들어간 뒤에도 타이머 인터럽트로 1초마다 헬멧·알코올 상태를 계속 감시합니다.</li>
+        <li>조건 위반 시 즉시 <code>cnt = 0</code>으로 되돌려 운행을 종료하고 요금을 정산합니다.</li>
+      </ul>
+    </div>
+
     <div class="blk">
       <h3 class="blk-h">기여도</h3>
       <div class="contrib">
@@ -1043,12 +1115,14 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
       <h3 class="blk-h">문제 해결</h3>
       <div class="ps">
         <div class="ps-item">
-          <p class="q">머리카락 때문에 터치 센서가 정확히 동작하지 않았습니다.</p>
-          <p class="a">헬멧은 머리에 밀착 착용하는 것이 올바르다는 점을 반영해, 스위치 센서로 착용 여부를 지속 확인하도록 변경했습니다.</p>
+          <p class="q">터치 센서(TTP223)가 머리카락 때문에 헬멧 착용을 제대로 감지하지 못했습니다.</p>
+          <p class="a">손(털 없음) → 이마(털 없음) → 앞머리 조금 → 앞머리로 완전히 덮음 순으로 조건을 바꿔가며 출력 로그(0/1)를 확인했고, 머리카락이 많을수록 0이 늘어나는 것을 확인했습니다.</p>
+          <p class="a">원인은 <b>TTP223이 임계값을 조절할 수 없는 디지털 출력</b>이라는 구조적 제약이었고, 소프트웨어로는 해결할 수 없는 문제였습니다.</p>
+          <p class="a">헬멧은 머리에 밀착 착용하는 것이 올바르다는 점을 반영해, 착용하는 동안 항상 눌린 상태가 유지되는 스위치 센서로 교체했습니다. 단위 테스트(손)에서는 통과했지만 통합 테스트(실제 헬멧 + 사람)에서 드러난 문제였습니다.</p>
         </div>
         <div class="ps-item">
           <p class="q">헬멧부와 킥보드부 간 데이터 전송 시 여러 값을 개별 전송하면 지연이 발생했습니다.</p>
-          <p class="a">알코올 수치와 헬멧 착용 여부 데이터를 하나로 통합하고, 타이머 기반으로 전송해 지연을 줄였습니다.</p>
+          <p class="a">알코올 수치와 헬멧 착용 여부를 <b>1바이트로 패킹</b>하고, 1초 주기 타이머 인터럽트로 전송해 통신 횟수와 지연을 줄였습니다.</p>
         </div>
       </div>
     </div>
@@ -1056,7 +1130,9 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
       <h3 class="blk-h">사용 기술</h3>
       <div class="chips">
         <span class="chip key">ATmega128</span><span class="chip key">C</span><span class="chip key">UART</span>
-        <span class="chip">MQ-3 Alcohol Sensor</span><span class="chip">Switch Sensor</span><span class="chip">Touch Sensor</span><span class="chip">Timer</span>
+        <span class="chip key">ADC</span><span class="chip">Timer / External Interrupt</span>
+        <span class="chip">MQ-3 Alcohol Sensor</span><span class="chip">Switch Sensor</span>
+        <span class="chip">TTP223 Touch Sensor</span><span class="chip">조도 센서</span><span class="chip">LCD</span>
       </div>
     </div>
     <div class="blk">
@@ -1070,20 +1146,75 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
     </div>
   </div>
 
-  <div data-id="p3" data-tag="TEAM PROJECT · ROS · Jetson Nano" data-title="타겟 드론 Following 드론 시스템">
+  <div data-id="p3" data-tag="TEAM PROJECT · ROS · PX4 · Jetson Nano" data-title="타겟 드론 Following 드론 시스템">
     <div class="blk">
       <h3 class="blk-h">문제 정의</h3>
-      <p>비행 중인 타겟 드론을 안정적으로 인식하고 자동으로 추적하는 시스템을 구현했습니다.</p>
+      <p>비행 중인 타겟 드론을 실내에서 안정적으로 인식하고 자동으로 추적하는 시스템입니다. GPS를 쓸 수 없는 실내 환경에서 <b>절대 위치 추정 없이, 카메라가 본 상대 위치만으로</b> 팔로잉을 구현했습니다.</p>
     </div>
+
     <div class="blk">
-      <h3 class="blk-h">핵심 기능</h3>
+      <h3 class="blk-h">시스템 구성</h3>
+      <div class="sys">
+        <div class="sys-item">
+          <h4>인식 노드 <code>detect_drone_success.py</code> <span class="own">MY PART</span></h4>
+          <ul>
+            <li>드론 데이터셋으로 직접 학습시킨 타겟 감지 모델(YOLOv5) 사용</li>
+            <li>Jetson Nano GPU 위에서 추론, Intel RealSense D435로 영상 입력</li>
+            <li>타겟 인식 후 <code>vel_msg</code> publish</li>
+          </ul>
+        </div>
+        <div class="sys-item">
+          <h4>제어 노드 <code>offb_node.py</code> <span class="own">MY PART</span></h4>
+          <ul>
+            <li>20Hz 고정 주기로 인식 노드와 독립 동작</li>
+            <li>MAVROS → MAVLink → Pixhawk(PX4) 경로로 속도 명령 전달</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h3 class="blk-h">설계 1 — 인식과 제어의 노드 분리</h3>
       <ul>
-        <li>드론 데이터셋 기반 타겟 드론 감지 모델 학습</li>
-        <li>전면 카메라 영상에서 타겟 드론 탐지</li>
-        <li>bounding box 크기와 좌표를 기반으로 위치 조정</li>
-        <li>ROS 토픽 발행을 통한 제어 명령 전달</li>
+        <li><b>분리 전</b> — YOLOv5 추론은 Jetson Nano GPU에서도 50ms를 넘길 수 있습니다. 이 추론이 제어 루프를 블로킹해 20Hz 주기가 불안정해졌고, PX4 <b>OFFBOARD 모드가 요구하는 2Hz 이상의 setpoint 스트림</b>이 끊길 위험이 있었습니다.</li>
+        <li><b>분리 후</b> — 제어 노드가 인식 속도와 무관하게 20Hz(50ms)를 고정 유지합니다. 인식이 늦어도 마지막 유효 명령을 계속 전송해 스트림이 끊기지 않습니다.</li>
       </ul>
     </div>
+
+    <div class="blk">
+      <h3 class="blk-h">설계 2 — 3축 독립 제어 <code>cent()</code></h3>
+      <table>
+        <thead><tr><th>축</th><th>판단 기준</th><th>반환</th></tr></thead>
+        <tbody>
+          <tr><td><b>X</b> 전진·후진</td><td>바운딩 박스 면적 vs 기준 면적 (±768)</td><td>+1 전진 / −1 후진</td></tr>
+          <tr><td><b>Y</b> Yaw 좌우</td><td>박스 중심 x vs 화면 중심 (±32px)</td><td>+1 오른쪽 / −1 왼쪽</td></tr>
+          <tr><td><b>Z</b> 상승·하강</td><td>박스 중심 y vs 화면 중심 (±24px)</td><td>+1 위 / −1 아래</td></tr>
+        </tbody>
+      </table>
+      <ul style="margin-top:14px">
+        <li>범위 안이면 0을 반환하는 <b>dead zone</b>을 두어 미세 오차를 무시합니다.</li>
+        <li>반환값이 −1 / 0 / +1 부호뿐이므로 PID가 아니라 <b>방향 신호</b>입니다.</li>
+      </ul>
+    </div>
+
+    <div class="blk">
+      <h3 class="blk-h">설계 3 — 누적 카운터와 Fail-Safe</h3>
+      <ul>
+        <li>방향 신호를 <code>cnt</code>에 누적해 <b>임계값 15를 넘을 때만</b> 고정 속도 0.2로 명령합니다.</li>
+        <li>방향이 급격히 반전되면 <code>cnt</code>를 리셋해 오인식으로 인한 급기동을 막습니다.</li>
+        <li><code>cnt_det</code> — 탐지 0개면 +1, 1개 이상이면 50으로 리셋(호버링).</li>
+        <li><code>cnt_det &gt; 150</code>, 약 100프레임 연속 미탐지면 <code>det_msg = -1</code>로 <b>자동 착륙</b>합니다.</li>
+      </ul>
+    </div>
+
+    <div class="blk">
+      <h3 class="blk-h">통신 구조</h3>
+      <ul>
+        <li>ROS Topic Pub-Sub 방식, <code>queue_size=10</code></li>
+        <li>콜백에서 전역변수를 덮어쓰는 최신값 우선 구조 → 데이터가 유실되어도 마지막 명령이 유지됩니다.</li>
+      </ul>
+    </div>
+
     <div class="blk">
       <h3 class="blk-h">기여도</h3>
       <div class="contrib">
@@ -1093,28 +1224,57 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         <div class="cr"><span class="lb">최적화</span><span class="val">10/10</span><span class="track"><span class="fill" data-w="100"></span></span></div>
       </div>
     </div>
+
     <div class="blk">
       <h3 class="blk-h">문제 해결</h3>
       <div class="ps">
         <div class="ps-item">
-          <p class="q">Jetson Nano에서 이미지 분석부터 위치 조절까지의 처리 속도가 느려 버퍼링과 인식률 저하가 발생했습니다.</p>
-          <p class="a">모든 센서 스트리밍 구조를 점검하고 카메라 프레임 수를 조정해 파이프라인을 최적화했습니다.</p>
+          <p class="q">YOLOv5 추론이 제어 루프를 붙잡아 20Hz 주기가 흔들렸고, OFFBOARD 스트림이 끊길 위험이 있었습니다.</p>
+          <p class="a">인식과 제어를 별도 ROS 노드로 분리해, 제어 노드가 인식 속도와 무관하게 20Hz를 고정 유지하도록 만들었습니다.</p>
+        </div>
+        <div class="ps-item">
+          <p class="q">실내라 GPS 위성 신호가 차단되어 드론의 절대 위치를 알 수 없었습니다.</p>
+          <p class="a">대안으로 RealSense depth 스트림을 활성화해 위치 추정을 검토했습니다.</p>
+          <p class="a">하지만 이 시스템에 필요한 것은 "내가 (x, y, z)에 있다"는 절대 위치가 아니라 "타겟이 화면 중심에서 왼쪽 32px에 있다"는 <b>상대 위치</b>뿐이라는 점을 확인했고, 바운딩 박스만으로 충분해 depth와 SLAM은 쓰지 않았습니다.</p>
+          <p class="a">드론 자체의 odometry는 PX4가 내부에서 IMU(가속도계·자이로)로 추정하며, 저는 그 위에서 MAVROS로 속도 명령을 전달하는 제어 레이어를 담당했습니다.</p>
+        </div>
+        <div class="ps-item">
+          <p class="q">제어 방식을 두고 팀 내에서 위치 제어와 속도 제어 의견이 갈렸습니다.</p>
+          <p class="a">위치 제어는 목표까지의 거리가 멀수록 입력이 커져 관성으로 오버슈트가 생깁니다. 속도 제한을 걸 수는 있지만, 타겟이 매 순간 바뀌는 팔로잉에는 매 순간 속도를 조절하는 방식이 더 자연스럽습니다.</p>
+          <p class="a">두 방식을 모두 구현해 실제 안정성을 비교한 뒤 속도 제어를 채택했습니다.</p>
         </div>
         <div class="ps-item">
           <p class="q">드론의 불안정한 비행으로 통신까지 불안정해지는 문제가 있었습니다.</p>
           <p class="a">하드웨어를 물리적으로 더 단단하게 결합해 진동을 줄이고 통신 안정성을 높였습니다.</p>
         </div>
-        <div class="ps-item">
-          <p class="q">제어 방식에 대해 속도 제어와 위치 제어 사이에서 팀 내 의견 차이가 있었습니다.</p>
-          <p class="a">두 방식을 모두 구현해 실험하고 실제 안정성을 비교한 뒤, 속도 제어 방식을 채택했습니다.</p>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h3 class="blk-h">한계와 개선 방향</h3>
+      <div class="sys">
+        <div class="sys-item">
+          <h4>제어기 <span class="lim">TODO</span></h4>
+          <ul><li>방향 누적 + 임계값 + 고정 속도 방식이라 오차의 <b>크기</b>를 반영하지 못합니다. P(비례) 제어를 더해 오차에 비례해 속도를 가변하는 것이 다음 단계입니다.</li></ul>
+        </div>
+        <div class="sys-item">
+          <h4>Watchdog <span class="lim">TODO</span></h4>
+          <ul><li>인식 노드가 통신을 늦게 하는 경우는 마지막 명령 유지로 버티지만, <b>노드 자체가 죽는 경우</b>를 감지할 장치가 없습니다.</li></ul>
         </div>
       </div>
     </div>
+
+    <div class="blk">
+      <h3 class="blk-h">발표</h3>
+      <p><b>2024 하계통신학회</b> 참가·발표.</p>
+    </div>
+
     <div class="blk">
       <h3 class="blk-h">사용 기술</h3>
       <div class="chips">
-        <span class="chip key">Python</span><span class="chip key">ROS</span><span class="chip key">Jetson Nano</span>
-        <span class="chip">Object Detection</span><span class="chip">OpenCV</span>
+        <span class="chip key">Python</span><span class="chip key">ROS</span><span class="chip key">YOLOv5</span>
+        <span class="chip key">PX4 / Pixhawk</span><span class="chip">MAVROS</span><span class="chip">MAVLink</span>
+        <span class="chip">Intel RealSense D435</span><span class="chip">Jetson Nano</span><span class="chip">OpenCV</span>
       </div>
     </div>
   </div>
@@ -1333,6 +1493,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
     }else{
       tabRm.hidden=true;
       repoLink.hidden=true;
+      repoLinkText.textContent='';
       showPane('ov');
     }
     bd.classList.add('open');
