@@ -3,11 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>시은 | Robotics · Embedded Portfolio</title>
-<meta name="description" content="임베디드 시스템과 AI를 결합한 문제 해결. 센서 기반 제어, Computer Vision, ROS 2, 웹 서비스 개발 경험." />
-<meta property="og:title" content="황시은 | Robotics · Embedded Portfolio" />
-<meta property="og:description" content="임베디드 시스템과 AI를 결합한 문제 해결." />
+<title>황시은 | Robotics · Embedded Portfolio</title>
+<meta name="description" content="임베디드 시스템과 AI를 결합한 문제 해결. 센서 기반 제어, Computer Vision, ROS 2, PX4, 웹 서비스 개발 경험." />
+<meta property="og:title" content="황시은 | Embedded & Robotics" />
+<meta property="og:description" content="센서에서 제어 신호까지, 모든 층을 다룹니다. ROS 2 · PX4 · ATmega128 · Vision" />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://tlrma.github.io/" />
+<!-- 링크 공유 시 미리보기 이미지. assets/banner-light.png 를 이 레포에도 넣어주세요 -->
+<meta property="og:image" content="https://tlrma.github.io/assets/banner-light.png" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
@@ -78,7 +82,12 @@ header.nav{
 }
 header.nav.scrolled{border-bottom-color:var(--line);}
 .nav-in{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.brand{font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.06em;display:flex;align-items:center;gap:9px;}
+.brand{
+  font-family:var(--sans);font-weight:750;font-size:15px;letter-spacing:-.012em;
+  display:flex;align-items:center;gap:9px;white-space:nowrap;
+}
+.brand .brand-sep{color:var(--line);margin:0 5px;font-weight:400;}
+.brand span:last-child{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.11em;color:var(--muted);}
 .brand .dot{width:7px;height:7px;border-radius:50%;background:var(--fg);animation:pulse 2.4s var(--ease) infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
 .nav-links{display:flex;align-items:center;gap:4px;}
@@ -121,35 +130,44 @@ html[data-theme="dark"] .i-moon{display:none;}
 /* ============ HERO ============ */
 .hero{
   min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-  padding-top:64px;position:relative;overflow:hidden;
+  padding-top:140px;padding-bottom:80px;position:relative;overflow:hidden;
 }
 .hero-grid{
   position:absolute;inset:0;z-index:0;pointer-events:none;
   background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
   background-size:64px 64px;
-  mask-image:radial-gradient(ellipse 90% 65% at 50% 40%,#000 20%,transparent 78%);
-  -webkit-mask-image:radial-gradient(ellipse 90% 65% at 50% 40%,#000 20%,transparent 78%);
+  mask-image:radial-gradient(ellipse 92% 78% at 32% 44%,#000 16%,transparent 82%);
+  -webkit-mask-image:radial-gradient(ellipse 92% 78% at 32% 44%,#000 16%,transparent 82%);
 }
 .hero .wrap{position:relative;z-index:1;}
-.tagline{
-  display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;
-  letter-spacing:.04em;color:var(--fg-2);border:1px solid var(--line);
-  padding:7px 14px;border-radius:999px;background:var(--card);margin-bottom:30px;
+
+.hero-main{flex:0 1 628px;min-width:0;}
+.hero-eyebrow{
+  margin:0 0 22px;font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--muted);
+  animation:fadeUp .8s var(--ease) .05s both;
 }
-.tagline .live{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.18);}
 h1.hero-name{
-  margin:0;font-size:clamp(3rem,11vw,8.5rem);line-height:.92;font-weight:800;letter-spacing:-.045em;
+  margin:0;font-size:clamp(2.8rem,7.4vw,5.6rem);line-height:1.08;font-weight:800;letter-spacing:-.048em;
 }
-h1.hero-name .ln{display:block;overflow:hidden;}
+h1.hero-name .ln{display:block;overflow:hidden;padding-bottom:.04em;}
 h1.hero-name .ln i{display:block;font-style:normal;animation:riseIn 1s var(--ease) both;}
 h1.hero-name .ln:nth-child(2) i{animation-delay:.09s;}
-@keyframes riseIn{from{transform:translateY(105%)}to{transform:none}}
-.hero-sub{
-  margin:30px 0 0;max-width:52ch;font-size:clamp(15px,1.9vw,18px);color:var(--fg-2);line-height:1.75;
-  animation:fadeUp .9s var(--ease) .3s both;
+h1.hero-name .rom{
+  font-family:var(--mono);font-style:normal;font-weight:500;
+  font-size:clamp(.68rem,1.25vw,.95rem);letter-spacing:.2em;color:var(--muted);
+  margin-left:.85em;vertical-align:.5em;white-space:nowrap;
 }
-.hero-sub b{font-weight:700;color:var(--fg);}
-.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px;animation:fadeUp .9s var(--ease) .42s both;}
+h1.hero-name .role{
+  font-size:clamp(1.55rem,4vw,3.05rem);letter-spacing:-.042em;color:var(--fg-2);
+  line-height:1.12;white-space:nowrap;
+}
+.hero-desc{
+  margin:26px 0 0;max-width:44ch;font-size:clamp(14.5px,1.65vw,16.5px);color:var(--fg-2);line-height:1.82;
+  animation:fadeUp .85s var(--ease) .38s both;
+}
+.hero-desc b{font-weight:700;color:var(--fg);}
+
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;animation:fadeUp .9s var(--ease) .5s both;}
 .btn{
   display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 20px;border-radius:11px;
   font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--card);
@@ -159,18 +177,37 @@ h1.hero-name .ln:nth-child(2) i{animation-delay:.09s;}
 .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--muted);}
 .btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg);}
 .btn.primary:hover{opacity:.88;}
-.hero-meta{
-  display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:52px;font-family:var(--mono);font-size:11.5px;
-  color:var(--muted);letter-spacing:.03em;animation:fadeUp .9s var(--ease) .55s both;
+
+.hero-2col{
+  display:flex;justify-content:center;align-items:flex-start;
+  gap:clamp(18px,2vw,24px);flex-wrap:wrap;
 }
-.hero-meta span::before{content:"— ";opacity:.5;}
+.hero-side{flex:0 0 274px;padding-top:62px;animation:fadeUp .9s var(--ease) .62s both;}
+.side-block + .side-block{margin-top:34px;}
+.grp-label{
+  margin:0 0 14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);
+}
+.now-role{margin:0;font-size:1.18rem;font-weight:700;letter-spacing:-.028em;color:var(--fg);}
+.now-org{margin:7px 0 0;font-size:.95rem;font-weight:500;color:var(--muted);letter-spacing:-.015em;line-height:1.5;}
+.now-when{margin:10px 0 0;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted);}
+.badges{display:flex;flex-wrap:wrap;gap:8px;}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line);border-radius:999px;background:var(--card);
+  padding:7px 14px;font-size:12.5px;font-weight:600;letter-spacing:-.012em;color:var(--fg-2);
+  transition:transform .22s var(--ease),border-color .22s,color .22s,background .22s;
+}
+.badge:hover{transform:translateY(-2px);border-color:var(--muted);color:var(--fg);}
+
 .scroll-hint{
-  position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:1;
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:1;
   font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--muted);
-  display:flex;flex-direction:column;align-items:center;gap:9px;animation:fadeUp 1s var(--ease) .8s both;
+  display:flex;flex-direction:column;align-items:center;gap:9px;animation:fadeUp 1s var(--ease) .85s both;
 }
-.scroll-hint .bar{width:1px;height:34px;background:linear-gradient(var(--muted),transparent);animation:drop 1.9s var(--ease) infinite;}
+.scroll-hint .bar{width:1px;height:30px;background:linear-gradient(var(--muted),transparent);animation:drop 1.9s var(--ease) infinite;}
 @keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes riseIn{from{transform:translateY(105%)}to{transform:none}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
 /* ============ SECTION HEAD ============ */
@@ -184,26 +221,25 @@ h1.hero-name .ln:nth-child(2) i{animation-delay:.09s;}
 .sec-desc{margin:14px 0 0;color:var(--muted);font-size:15px;max-width:56ch;}
 
 /* ============ ABOUT ============ */
-.about-grid{display:grid;grid-template-columns:1.25fr .95fr;gap:clamp(28px,5vw,64px);align-items:start;}
-.about-body p{margin:0 0 18px;font-size:clamp(15px,1.7vw,17px);color:var(--fg-2);line-height:1.85;}
+.about-grid{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(300px,.92fr);gap:clamp(28px,5vw,64px);align-items:start;}
+.info-card{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+  padding:8px 22px;box-shadow:var(--shadow);
+}
+.info-row{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line-2);align-items:baseline;}
+.info-row:last-child{border-bottom:none;}
+.info-row dt{
+  flex:0 0 78px;font-family:var(--mono);font-size:11px;letter-spacing:.09em;color:var(--muted);
+  text-transform:uppercase;margin:0;
+}
+.info-row dd{margin:0;font-size:14.5px;font-weight:500;color:var(--fg);line-height:1.55;}
+.info-row dd small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:3px;}
+.about-body p{margin:0 0 18px;font-size:clamp(15px,1.75vw,17.5px);color:var(--fg-2);line-height:1.9;}
 .about-body p:last-child{margin-bottom:0;}
 .about-body strong{color:var(--fg);font-weight:700;}
 .mark{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--fg) 14%,transparent) 0);padding:0 2px;}
-.info-card{
-  border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
-  padding:8px 20px;box-shadow:var(--shadow);
-}
-.info-row{display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--line-2);align-items:baseline;}
-.info-row:last-child{border-bottom:none;}
-.info-row dt{
-  flex:0 0 76px;font-family:var(--mono);font-size:11px;letter-spacing:.09em;color:var(--muted);
-  text-transform:uppercase;margin:0;
-}
-.info-row dd{margin:0;font-size:14.5px;font-weight:500;color:var(--fg);}
-.info-row dd small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px;}
-
 /* ============ SKILLS ============ */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;align-items:start;}
 .skill-card{
   border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:24px;
   transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
@@ -223,7 +259,6 @@ h1.hero-name .ln:nth-child(2) i{animation-delay:.09s;}
   transition:background .2s,color .2s,border-color .2s;
 }
 .chip:hover{background:var(--bg);border-color:var(--line);color:var(--fg);}
-.chip.key{background:var(--fg);color:var(--bg);}
 
 /* ============ PROJECTS ============ */
 .proj-list{display:flex;flex-direction:column;border-top:1px solid var(--line);}
@@ -308,6 +343,25 @@ h1.hero-name .ln:nth-child(2) i{animation-delay:.09s;}
 .blk td{color:var(--fg-2);}
 .blk td b{color:var(--fg);}
 .sys-item h4 .lim{font-family:var(--mono);font-size:10px;font-weight:500;background:transparent;border:1px solid var(--line);color:var(--muted);padding:2px 7px;border-radius:5px;letter-spacing:.05em;}
+
+/* ---- 미디어 (동영상 · GIF · 이미지) ---- */
+.media{margin:0;}
+.media + .media{margin-top:14px;}
+.media-grid .media + .media{margin-top:0;}
+.media video,.media img{
+  width:100%;display:block;border-radius:12px;border:1px solid var(--line);
+  background:var(--bg-soft);
+}
+.media figcaption{
+  margin-top:10px;font-size:12.5px;color:var(--muted);line-height:1.6;text-align:center;
+}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;align-items:start;}
+.media-grid .media figcaption{font-size:11.5px;margin-top:7px;}
+.media-embed{
+  position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;
+  border:1px solid var(--line);background:var(--bg-soft);
+}
+.media-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
 /* system config sub-cards */
 .sys{display:grid;gap:10px;}
@@ -458,7 +512,36 @@ h1.hero-name .ln:nth-child(2) i{animation-delay:.09s;}
 .tl-date{font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.04em;}
 .tl-item h3{margin:5px 0 6px;font-size:16px;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
 .badge-now{font-family:var(--mono);font-size:10px;background:var(--fg);color:var(--bg);padding:2px 8px;border-radius:99px;letter-spacing:.06em;font-weight:500;}
+.badge-grad{font-family:var(--mono);font-size:10px;background:transparent;color:var(--muted);border:1px solid var(--line);padding:2px 8px;border-radius:99px;letter-spacing:.06em;font-weight:500;}
+.tl-item.edu::before{border-color:var(--line);background:var(--bg);box-shadow:inset 0 0 0 2px var(--bg);}
 .tl-item p{margin:0 0 10px;font-size:14px;color:var(--fg-2);line-height:1.75;}
+
+/* ============ AWARDS & CERTS ============ */
+.ac-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4.2vw,52px);align-items:start;}
+.ac-h{
+  margin:0 0 16px;font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);display:flex;align-items:center;gap:9px;font-weight:500;
+}
+.ac-h svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.ac-h::after{content:"";flex:1;height:1px;background:var(--line);}
+.ac-card{
+  display:flex;gap:16px;align-items:center;
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+  padding:16px 18px;margin-bottom:11px;
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),border-color .28s;
+}
+.ac-card:last-child{margin-bottom:0;}
+.ac-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--muted);}
+.ac-mark{
+  flex:0 0 auto;width:56px;height:56px;border-radius:13px;display:grid;place-items:center;
+  font-family:var(--mono);font-weight:700;font-size:17px;letter-spacing:-.01em;
+  background:var(--fg);color:var(--bg);
+}
+.ac-card.cert .ac-mark{background:var(--chip);color:var(--fg);border:1px solid var(--line);}
+.ac-body{min-width:0;}
+.ac-body h4{margin:0 0 5px;font-size:15px;font-weight:700;letter-spacing:-.02em;line-height:1.4;}
+.ac-body p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.55;}
+.ac-body .when{font-family:var(--mono);letter-spacing:.03em;}
 
 /* ============ CONTACT ============ */
 .contact{text-align:center;}
@@ -495,8 +578,40 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
 .rv[data-d="4"]{transition-delay:.32s}
 
 /* ============ RESPONSIVE ============ */
+@media(max-height:860px) and (min-width:981px){
+  .hero{padding-top:110px;padding-bottom:44px;}
+  h1.hero-name{font-size:clamp(2.6rem,6.4vw,4.6rem);}
+  h1.hero-name .role{font-size:clamp(1.5rem,3.9vw,2.9rem);}
+  .hero-desc{margin-top:22px;line-height:1.75;}
+  .hero-cta{margin-top:26px;}
+  .hero-side{padding-top:48px;}
+  .side-block + .side-block{margin-top:26px;}
+  .scroll-hint{display:none;}
+}
+@media(max-width:980px){
+  .hero{min-height:auto;padding-top:118px;padding-bottom:84px;}
+  .hero-2col{flex-direction:column;gap:34px;}
+  .hero-main{flex:1 1 auto;width:100%;}
+  .hero-side{flex:1 1 auto;width:100%;}
+  .hero-side{padding-top:28px;border-top:1px solid var(--line);}
+  .side-block + .side-block{margin-top:26px;}
+  .scroll-hint{display:none;}
+}
 @media(max-width:900px){
-  .about-grid{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;gap:30px;}
+  .ac-grid{grid-template-columns:1fr;gap:34px;}
+}
+@media(max-width:560px){
+  h1.hero-name{font-size:clamp(2.3rem,11.5vw,3.2rem);}
+  h1.hero-name .rom{display:block;margin:9px 0 2px;vertical-align:0;font-size:9.5px;letter-spacing:.17em;}
+  h1.hero-name .role{font-size:clamp(1.5rem,7.6vw,2.2rem);white-space:normal;}
+  .hero-desc{font-size:14px;line-height:1.75;margin-top:22px;max-width:none;}
+  .hero-cta{margin-top:26px;gap:8px;}
+  .hero-cta .btn{height:42px;padding:0 15px;font-size:13.5px;}
+  .now-role{font-size:1.08rem;}
+  .now-org{font-size:.92rem;}
+  .now-when{font-size:11px;}
+  .badge{font-size:12px;padding:7px 13px;gap:7px;}
 }
 @media(max-width:720px){
   .nav-links{display:none;}
@@ -505,7 +620,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
   .proj:hover{padding-left:8px;}
   .proj-num{padding-top:0;}
   .proj-open{padding-top:2px;}
-  .hero-meta{gap:6px 18px;}
+  
   .modal-body{padding:22px 18px 30px;}
   .modal-top{padding:18px 18px 15px;}
   .tabs{padding:0 18px;}
@@ -524,12 +639,13 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a href="#top" class="brand"><span class="dot"></span>SIEUN.DEV</a>
+    <a href="#top" class="brand"><span class="dot"></span>황시은<span class="brand-sep">/</span>SIEUN</a>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#career">Career</a>
+      <a href="#awards">Awards</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-right">
@@ -551,7 +667,8 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
       <a href="#skills">Skills<span>02</span></a>
       <a href="#projects">Projects<span>03</span></a>
       <a href="#career">Career<span>04</span></a>
-      <a href="#contact">Contact<span>05</span></a>
+      <a href="#awards">Awards &amp; Certifications<span>05</span></a>
+      <a href="#contact">Contact<span>06</span></a>
     </nav>
   </div>
 </div>
@@ -559,17 +676,20 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
   <div class="hero-grid"></div>
-  <div class="wrap">
-    <div class="tagline"><span class="live"></span>SAMSUNG SW·AI ACADEMY FOR YOUTH 15기 · 임베디드 로봇 트랙 수료 중</div>
+  <div class="wrap hero-2col">
+   <div class="hero-main">
+
+    <p class="hero-eyebrow">PORTFOLIO / 2026</p>
+
     <h1 class="hero-name">
-      <span class="ln"><i>Embedded</i></span>
-      <span class="ln"><i>&amp; Robotics.</i></span>
+      <span class="ln"><i>황시은<em class="rom">HWANG SIEUN</em></i></span>
+      <span class="ln"><i class="role">Embedded &amp; Robotics.</i></span>
     </h1>
-    <p class="hero-sub">
+
+    <p class="hero-desc">
       센서에서 올라온 값이 <b>제어 신호</b>가 되기까지의 모든 층을 다룹니다.
-      ATmega128 위의 UART 프로토콜부터 ROS&nbsp;2 노드, Vision 파이프라인, 그리고 그 위에 얹히는 웹 서비스까지 —
-      <b>실제 환경에서 동작하는 시스템</b>을 만들어 왔습니다.
     </p>
+
     <div class="hero-cta">
       <a class="btn primary" href="#projects">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
@@ -584,12 +704,29 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         Email
       </a>
     </div>
-    <div class="hero-meta">
-      <span>ROS 2 · Nav2 · SLAM</span>
-      <span>ATmega128 · Jetson Nano</span>
-      <span>YOLOv8 · OpenCV</span>
-      <span>C / C++ / Python</span>
-    </div>
+
+   </div>
+
+   <aside class="hero-side">
+     <div class="side-block">
+       <p class="grp-label">Currently</p>
+       <p class="now-role">임베디드 로봇 트랙</p>
+       <p class="now-org">@ SAMSUNG SW·AI ACADEMY FOR YOUTH 15기</p>
+       <p class="now-when">2026.01 — 현재</p>
+     </div>
+     <div class="side-block">
+       <p class="grp-label">Focus</p>
+       <div class="badges">
+         <span class="badge">Embedded</span>
+         <span class="badge">ROS 2</span>
+         <span class="badge">SLAM</span>
+         <span class="badge">C / C++</span>
+         <span class="badge">Linux</span>
+         <span class="badge">Python</span>
+       </div>
+     </div>
+   </aside>
+
   </div>
   <div class="scroll-hint"><span>SCROLL</span><span class="bar"></span></div>
 </section>
@@ -617,11 +754,12 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
           드론 제어 방식을 두고 팀 의견이 갈렸을 때도 속도 제어와 위치 제어를 모두 실험해 안정성을 비교한 뒤 결론을 냈습니다.
         </p>
       </div>
+
       <div class="info-card rv" data-d="2">
         <dl style="margin:0">
           <div class="info-row"><dt>Name</dt><dd>황시은 <small>Hwang Sieun</small></dd></div>
           <div class="info-row"><dt>Field</dt><dd>Embedded · Robotics · Middleware</dd></div>
-          <div class="info-row"><dt>Education</dt><dd>국민대학교 전자공학부 지능전자공학전공 </dd></div>
+          <div class="info-row"><dt>Education</dt><dd>국민대학교 전자공학부 <small>지능전자공학전공</small></dd></div>
           <div class="info-row"><dt>Now</dt><dd>SAMSUNG SW·AI ACADEMY FOR YOUTH 15기 로봇 트랙 <small>2026.01 ~ 현재</small></dd></div>
           <div class="info-row"><dt>Email</dt><dd><a href="mailto:onono1141@gmail.com" style="border-bottom:1px solid var(--line)">onono1141@gmail.com</a></dd></div>
           <div class="info-row"><dt>GitHub</dt><dd><a href="https://github.com/tlrma" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">github.com/tlrma</a></dd></div>
@@ -637,6 +775,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
     <div class="sec-head rv">
       <div class="sec-num">02 &nbsp;/&nbsp; SKILLS</div>
       <h2 class="sec-title">Skills</h2>
+      <p class="sec-desc">프로젝트에서 실제로 사용해 본 기술만 적었습니다.</p>
     </div>
     <div class="skills-grid">
 
@@ -647,8 +786,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
         <p class="skill-note">저수준 제어와 데이터 처리 양쪽</p>
         <div class="chips">
-          <span class="chip key">C</span><span class="chip key">C++</span><span class="chip key">Python</span>
-          <span class="chip">Linux</span><span class="chip">Shell</span>
+          <span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span>
         </div>
       </div>
 
@@ -657,12 +795,10 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
           <span class="skill-ico"><svg viewBox="0 0 24 24"><rect x="5" y="9" width="14" height="11" rx="2"/><path d="M12 9V5M9 3h6M9 14h.01M15 14h.01"/></svg></span>
           <h3>Robotics · Middleware</h3>
         </div>
-        <p class="skill-note">멀티로봇 통신과 자율주행 스택</p>
+        <p class="skill-note">로봇 간 통신과 자율주행 · 비행 제어 스택</p>
         <div class="chips">
-          <span class="chip key">ROS 2</span><span class="chip key">ROS 1</span><span class="chip key">Nav2</span>
-          <span class="chip key">MAVROS</span><span class="chip">MAVLink</span><span class="chip">PX4 / Pixhawk</span>
-          <span class="chip">SLAM (slam_toolbox)</span><span class="chip">AMCL</span>
-          <span class="chip">rosbridge</span><span class="chip">TurtleBot</span><span class="chip">Dobot</span>
+          <span class="chip">ROS 1 / ROS 2</span><span class="chip">SLAM</span>
+          <span class="chip">MAVROS</span><span class="chip">MAVLink</span><span class="chip">PX4</span>
         </div>
       </div>
 
@@ -673,10 +809,8 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
         <p class="skill-note">MCU 펌웨어부터 엣지 디바이스까지</p>
         <div class="chips">
-          <span class="chip key">ATmega128</span><span class="chip key">UART</span><span class="chip key">ADC</span>
-          <span class="chip">Timer / External Interrupt</span><span class="chip">Jetson Nano</span>
-          <span class="chip">Intel RealSense D435</span>
-          <span class="chip">MQ-3 Sensor</span><span class="chip">Touch / Switch Sensor</span>
+          <span class="chip">ATmega128</span><span class="chip">Jetson Nano</span><span class="chip">Jetson Orin</span>
+          <span class="chip">UART</span><span class="chip">Sensor Interfacing</span>
         </div>
       </div>
 
@@ -687,9 +821,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
         <p class="skill-note">검출·분류 모델 학습과 파이프라인 최적화</p>
         <div class="chips">
-          <span class="chip key">YOLOv8</span><span class="chip key">YOLOv5</span><span class="chip key">OpenCV</span><span class="chip">PyTorch</span>
-          <span class="chip">ResNet18</span><span class="chip">K-NN</span>
-          <span class="chip">Camera Calibration</span><span class="chip">Homography</span>
+          <span class="chip">YOLO</span><span class="chip">OpenCV</span><span class="chip">PyTorch</span>
         </div>
       </div>
 
@@ -700,9 +832,8 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
         <p class="skill-note">로봇 시스템을 사람이 쓸 수 있게 만드는 층</p>
         <div class="chips">
-          <span class="chip key">Django</span><span class="chip key">Flask</span>
-          <span class="chip">Vue.js</span><span class="chip">MySQL</span>
-          <span class="chip">SQLite3</span><span class="chip">REST API</span><span class="chip">Spotify API</span>
+          <span class="chip">Flask</span><span class="chip">Django</span>
+          <span class="chip">MySQL</span><span class="chip">SQLite3</span><span class="chip">REST API</span>
         </div>
       </div>
 
@@ -711,10 +842,10 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
           <span class="skill-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.9 6.9a2.12 2.12 0 01-3-3l6.9-6.9a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span>
           <h3>Tools</h3>
         </div>
-        <p class="skill-note">협업과 디버깅</p>
+        <p class="skill-note">협업과 이슈 관리</p>
         <div class="chips">
-          <span class="chip key">Git / GitHub</span><span class="chip">Jira</span>
-          <span class="chip">Notion</span><span class="chip">Ubuntu</span><span class="chip">RViz</span>
+          <span class="chip">Git</span><span class="chip">GitHub</span>
+          <span class="chip">Jira</span><span class="chip">Notion</span>
         </div>
       </div>
 
@@ -728,6 +859,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
     <div class="sec-head rv">
       <div class="sec-num">03 &nbsp;/&nbsp; PROJECTS</div>
       <h2 class="sec-title">Projects</h2>
+      <p class="sec-desc">각 프로젝트에서 <b>어떤 문제를 만났고 어떻게 해결했는지</b>를 중심으로 정리했습니다. 카드를 누르면 상세 내용이 열리고, <b>README 탭</b>에서는 GitHub 저장소의 최신 README를 그대로 불러옵니다.</p>
     </div>
 
     <div class="proj-list">
@@ -788,7 +920,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
 
     </div>
 
-    <!-- ---- GitHub 저장소 자동 목록 ---- -->
+    <!-- GitHub 저장소 자동 목록 -->
     <div class="repos-head rv">
       <h3>
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8 0-.8 0-.8 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17.3 4.6 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3z"/></svg>
@@ -852,11 +984,69 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
   </div>
 </section>
 
+<!-- ================= AWARDS & CERTIFICATIONS ================= -->
+<section id="awards" class="sec-line">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">05 &nbsp;/&nbsp; AWARDS &amp; CERTIFICATIONS</div>
+      <h2 class="sec-title">Awards &amp; Certifications</h2>
+    </div>
+
+    <div class="ac-grid">
+
+      <div class="ac-col rv">
+        <h3 class="ac-h">
+          <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM17 5h2a2 2 0 010 4h-2M7 5H5a2 2 0 000 4h2"/></svg>
+          수상
+        </h3>
+        <!-- ▼ 수상: 시기를 정확히 알고 계시면 .when 부분을 실제 연월로 바꿔주세요 -->
+        <div class="ac-card award">
+          <span class="ac-mark">2등</span>
+          <span class="ac-body">
+            <h4>관통 프로젝트 우수상</h4>
+            <p>Samsung SW·AI Academy For Youth 15기 <span class="when">· 1학기</span></p>
+          </span>
+        </div>
+        <div class="ac-card award">
+          <span class="ac-mark">2등</span>
+          <span class="ac-body">
+            <h4>1학기 성적 우수상</h4>
+            <p>Samsung SW·AI Academy For Youth 15기 <span class="when">· 1학기</span></p>
+          </span>
+        </div>
+      </div>
+
+      <div class="ac-col rv" data-d="1">
+        <h3 class="ac-h">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>
+          자격 · 어학
+        </h3>
+        <!-- ▼ 자격·어학: 취득 연월을 알고 계시면 <span class="when"> 안에 넣어주세요 -->
+        <div class="ac-card cert">
+          <span class="ac-mark">B</span>
+          <span class="ac-body">
+            <h4>삼성 SW 역량테스트</h4>
+            <p>B 취득 · A+ 취득</p>
+          </span>
+        </div>
+        <div class="ac-card cert">
+          <span class="ac-mark">IH</span>
+          <span class="ac-body">
+            <h4>OPIc</h4>
+            <p>Intermediate High · 영어</p>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ================= CONTACT ================= -->
 <section id="contact" class="sec-line contact">
   <div class="wrap">
     <div class="rv">
-      <div class="sec-num" style="justify-content:center">05 &nbsp;/&nbsp; CONTACT</div>
+      <div class="sec-num" style="justify-content:center">06 &nbsp;/&nbsp; CONTACT</div>
       <h2>같이 만들<br>이야기가 있다면</h2>
       <p class="lead">로봇·임베디드·미들웨어 분야의 기회나 협업 제안은 언제든 환영합니다.</p>
       <a class="mailto" href="mailto:onono1141@gmail.com">onono1141@gmail.com</a>
@@ -951,6 +1141,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
           <ul>
             <li>같은 카테고리 · 최근 30일 이내 후보로 필터링 후 유사도 점수 계산</li>
             <li>점수 기준으로 자동 매칭 / 검토 / 탐색 상태 분기 및 인증코드 · 메일 트리거</li>
+            <li>매칭 결과를 DB에 적재하고 <b>REST API로 전달하는 구간까지 직접 구현</b></li>
           </ul>
         </div>
         <div class="sys-item">
@@ -990,10 +1181,56 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
       </div>
     </div>
+    <!-- ============ 시연 미디어 ============
+         아래 4가지 중 쓸 것 하나만 골라, 그 블록을 감싼 주석 기호 두 개를 지우세요.
+         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다. -->
+
+    <!-- (1) 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <video src="media/lostfound-demo.mp4" poster="media/lostfound-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"></video>
+        <figcaption>비전 인식 → Dobot 적재 → TurtleBot 반환 운반 전 과정</figcaption>
+      </figure>
+    </div>
+    -->
+
+    <!-- (2) GIF 또는 이미지 한 장
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <img src="media/lostfound.gif" alt="비전 인식 → Dobot 적재 → TurtleBot 반환 운반 전 과정" loading="lazy">
+        <figcaption>비전 인식 → Dobot 적재 → TurtleBot 반환 운반 전 과정</figcaption>
+      </figure>
+    </div>
+    -->
+
+    <!-- (3) 이미지 여러 장 나란히
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <div class="media-grid">
+        <figure class="media"><img src="media/lostfound-1.png" alt="" loading="lazy"><figcaption>설명 1</figcaption></figure>
+        <figure class="media"><img src="media/lostfound-2.png" alt="" loading="lazy"><figcaption>설명 2</figcaption></figure>
+      </div>
+    </div>
+    -->
+
+    <!-- (4) 유튜브 : 주소 watch?v= 뒤 11자리를 영상ID 자리에 넣으세요
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <div class="media-embed">
+        <iframe src="https://www.youtube.com/embed/영상ID" title="비전 인식 → Dobot 적재 → TurtleBot 반환 운반 전 과정"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    -->
+
     <div class="blk">
       <h3 class="blk-h">사용 기술</h3>
       <div class="chips">
-        <span class="chip key">Python</span><span class="chip key">ROS 2</span><span class="chip key">YOLOv8</span>
+        <span class="chip">Python</span><span class="chip">ROS 2</span><span class="chip">YOLOv8</span>
         <span class="chip">OpenCV</span><span class="chip">PyTorch</span><span class="chip">Nav2</span><span class="chip">SLAM</span>
         <span class="chip">Django</span><span class="chip">Vue.js</span><span class="chip">MySQL</span>
       </div>
@@ -1126,11 +1363,57 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
       </div>
     </div>
+    <!-- ============ 시연 미디어 ============
+         아래 4가지 중 쓸 것 하나만 골라, 그 블록을 감싼 주석 기호 두 개를 지우세요.
+         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다. -->
+
+    <!-- (1) 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <video src="media/scooter-demo.mp4" poster="media/scooter-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"></video>
+        <figcaption>헬멧·음주·양손 파지 조건 검사 후 주행 시작</figcaption>
+      </figure>
+    </div>
+    -->
+
+    <!-- (2) GIF 또는 이미지 한 장
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <img src="media/scooter.gif" alt="헬멧·음주·양손 파지 조건 검사 후 주행 시작" loading="lazy">
+        <figcaption>헬멧·음주·양손 파지 조건 검사 후 주행 시작</figcaption>
+      </figure>
+    </div>
+    -->
+
+    <!-- (3) 이미지 여러 장 나란히
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <div class="media-grid">
+        <figure class="media"><img src="media/scooter-1.png" alt="" loading="lazy"><figcaption>설명 1</figcaption></figure>
+        <figure class="media"><img src="media/scooter-2.png" alt="" loading="lazy"><figcaption>설명 2</figcaption></figure>
+      </div>
+    </div>
+    -->
+
+    <!-- (4) 유튜브 : 주소 watch?v= 뒤 11자리를 영상ID 자리에 넣으세요
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <div class="media-embed">
+        <iframe src="https://www.youtube.com/embed/영상ID" title="헬멧·음주·양손 파지 조건 검사 후 주행 시작"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    -->
+
     <div class="blk">
       <h3 class="blk-h">사용 기술</h3>
       <div class="chips">
-        <span class="chip key">ATmega128</span><span class="chip key">C</span><span class="chip key">UART</span>
-        <span class="chip key">ADC</span><span class="chip">Timer / External Interrupt</span>
+        <span class="chip">ATmega128</span><span class="chip">C</span><span class="chip">UART</span>
+        <span class="chip">ADC</span><span class="chip">Timer / External Interrupt</span>
         <span class="chip">MQ-3 Alcohol Sensor</span><span class="chip">Switch Sensor</span>
         <span class="chip">TTP223 Touch Sensor</span><span class="chip">조도 센서</span><span class="chip">LCD</span>
       </div>
@@ -1266,14 +1549,60 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
 
     <div class="blk">
       <h3 class="blk-h">발표</h3>
-      <p><b>2024 하계통신학회</b> 참가·발표.</p>
+      <p><b>2024 하계통신학회</b> 참가·발표. 가장 많이 받은 질문은 "왜 SLAM이 아니라 카메라인가"였고, 타겟 팔로잉이라는 목적에는 상대 위치 계산이 더 단순하고 적합하다는 점으로 답했습니다.</p>
     </div>
+
+    <!-- ============ 시연 미디어 ============
+         아래 4가지 중 쓸 것 하나만 골라, 그 블록을 감싼 주석 기호 두 개를 지우세요.
+         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다. -->
+
+    <!-- (1) 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <video src="media/drone-demo.mp4" poster="media/drone-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"></video>
+        <figcaption>타겟 드론 검출과 20Hz 추종 비행</figcaption>
+      </figure>
+    </div>
+    -->
+
+    <!-- (2) GIF 또는 이미지 한 장
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <img src="media/drone.gif" alt="타겟 드론 검출과 20Hz 추종 비행" loading="lazy">
+        <figcaption>타겟 드론 검출과 20Hz 추종 비행</figcaption>
+      </figure>
+    </div>
+    -->
+
+    <!-- (3) 이미지 여러 장 나란히
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <div class="media-grid">
+        <figure class="media"><img src="media/drone-1.png" alt="" loading="lazy"><figcaption>설명 1</figcaption></figure>
+        <figure class="media"><img src="media/drone-2.png" alt="" loading="lazy"><figcaption>설명 2</figcaption></figure>
+      </div>
+    </div>
+    -->
+
+    <!-- (4) 유튜브 : 주소 watch?v= 뒤 11자리를 영상ID 자리에 넣으세요
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <div class="media-embed">
+        <iframe src="https://www.youtube.com/embed/영상ID" title="타겟 드론 검출과 20Hz 추종 비행"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    -->
 
     <div class="blk">
       <h3 class="blk-h">사용 기술</h3>
       <div class="chips">
-        <span class="chip key">Python</span><span class="chip key">ROS</span><span class="chip key">YOLOv5</span>
-        <span class="chip key">PX4 / Pixhawk</span><span class="chip">MAVROS</span><span class="chip">MAVLink</span>
+        <span class="chip">Python</span><span class="chip">ROS</span><span class="chip">YOLOv5</span>
+        <span class="chip">PX4 / Pixhawk</span><span class="chip">MAVROS</span><span class="chip">MAVLink</span>
         <span class="chip">Intel RealSense D435</span><span class="chip">Jetson Nano</span><span class="chip">OpenCV</span>
       </div>
     </div>
@@ -1317,10 +1646,56 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
       </div>
     </div>
+    <!-- ============ 시연 미디어 ============
+         아래 4가지 중 쓸 것 하나만 골라, 그 블록을 감싼 주석 기호 두 개를 지우세요.
+         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다. -->
+
+    <!-- (1) 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <video src="media/emotion-demo.mp4" poster="media/emotion-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"></video>
+        <figcaption>표정 인식 후 감정 기반 음악 추천</figcaption>
+      </figure>
+    </div>
+    -->
+
+    <!-- (2) GIF 또는 이미지 한 장
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <img src="media/emotion.gif" alt="표정 인식 후 감정 기반 음악 추천" loading="lazy">
+        <figcaption>표정 인식 후 감정 기반 음악 추천</figcaption>
+      </figure>
+    </div>
+    -->
+
+    <!-- (3) 이미지 여러 장 나란히
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <div class="media-grid">
+        <figure class="media"><img src="media/emotion-1.png" alt="" loading="lazy"><figcaption>설명 1</figcaption></figure>
+        <figure class="media"><img src="media/emotion-2.png" alt="" loading="lazy"><figcaption>설명 2</figcaption></figure>
+      </div>
+    </div>
+    -->
+
+    <!-- (4) 유튜브 : 주소 watch?v= 뒤 11자리를 영상ID 자리에 넣으세요
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <div class="media-embed">
+        <iframe src="https://www.youtube.com/embed/영상ID" title="표정 인식 후 감정 기반 음악 추천"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    -->
+
     <div class="blk">
       <h3 class="blk-h">사용 기술</h3>
       <div class="chips">
-        <span class="chip key">Python</span><span class="chip key">ResNet18</span><span class="chip key">K-NN</span>
+        <span class="chip">Python</span><span class="chip">ResNet18</span><span class="chip">K-NN</span>
         <span class="chip">Flask</span><span class="chip">SQLite3</span><span class="chip">Spotify API</span>
       </div>
     </div>
@@ -1431,8 +1806,14 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
   var store=document.getElementById('details');
   var lastFocus=null;
 
+  function playMedia(){
+    [].slice.call(bd.querySelectorAll('video[autoplay]')).forEach(function(v){
+      var pr=v.play(); if(pr&&pr.catch){pr.catch(function(){});}
+    });
+  }
   function animateBars(){
     setTimeout(function(){
+      playMedia();
       [].slice.call(paneOv.querySelectorAll('.fill')).forEach(function(f){
         f.style.width=(f.getAttribute('data-w')||0)+'%';
       });
@@ -1489,7 +1870,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
       repoLink.href='https://github.com/'+repo;
       repoLinkText.textContent=repo;
       loadReadme(repo);
-      showPane('rm');          // 저장소가 연결된 프로젝트는 README를 먼저 보여줍니다
+      showPane('ov');          // 항상 Overview 를 먼저 보여줍니다 ('rm' 으로 바꾸면 README 우선)
     }else{
       tabRm.hidden=true;
       repoLink.hidden=true;
@@ -1501,7 +1882,16 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
     animateBars();
     document.getElementById('modalX').focus();
   }
+  function stopMedia(){
+    [].slice.call(bd.querySelectorAll('video')).forEach(function(v){
+      try{v.pause();v.currentTime=0;}catch(e){}
+    });
+    [].slice.call(bd.querySelectorAll('iframe')).forEach(function(f){
+      var src=f.getAttribute('src'); if(src){f.setAttribute('src',src);}
+    });
+  }
   function close(){
+    stopMedia();
     bd.classList.remove('open');
     document.body.style.overflow='';
     if(lastFocus) lastFocus.focus();
