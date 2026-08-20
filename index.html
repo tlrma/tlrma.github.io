@@ -384,6 +384,57 @@ h1.hero-name .role{
 }
 .media-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
+/* ---- 미디어 캐러셀 (같은 블록에 media 가 2개 이상이면 자동 적용) ---- */
+.carousel{margin:0;}
+.car-view{position:relative;}
+.car-track{
+  display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;
+  border-radius:12px;
+}
+.car-track::-webkit-scrollbar{display:none;}
+.car-track:focus-visible{outline:2px solid var(--fg);outline-offset:3px;}
+.car-slide{
+  flex:0 0 100%;min-width:100%;scroll-snap-align:start;scroll-snap-stop:always;
+  display:flex;align-items:center;justify-content:center;
+}
+.car-slide video,.car-slide img{
+  width:100%;display:block;border-radius:12px;border:1px solid var(--line);
+  background:var(--bg-soft);max-height:min(58vh,520px);object-fit:contain;
+}
+.car-nav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:2;padding:0;
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--line-2);background:var(--bg);color:var(--fg);cursor:pointer;
+  opacity:.92;transition:opacity .15s,background .15s;box-shadow:0 2px 12px rgba(0,0,0,.14);
+}
+.car-nav:hover{opacity:1;background:var(--bg-soft);}
+.car-nav:disabled{opacity:.25;cursor:default;box-shadow:none;}
+.car-nav svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+.car-nav.prev{left:10px;}
+.car-nav.next{right:10px;}
+.car-count{
+  position:absolute;right:10px;top:10px;z-index:2;pointer-events:none;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+  background:rgba(0,0,0,.55);color:#fff;padding:3px 9px;border-radius:99px;
+}
+.car-foot{margin-top:11px;display:flex;flex-direction:column;align-items:center;gap:9px;}
+.car-cap{margin:0;font-size:12.5px;color:var(--muted);line-height:1.6;text-align:center;}
+.car-cap:empty{display:none;}
+.car-dots{display:flex;align-items:center;gap:6px;}
+.car-dots button{
+  width:6px;height:6px;padding:0;border:0;border-radius:99px;cursor:pointer;
+  background:var(--line-2);transition:background .18s,width .18s;
+}
+.car-dots button.on{background:var(--fg);width:17px;}
+@media(max-width:560px){
+  .car-nav{width:30px;height:30px;}
+  .car-nav.prev{left:6px;}
+  .car-nav.next{right:6px;}
+  .car-count{font-size:10px;padding:2px 7px;right:7px;top:7px;}
+  .car-slide video,.car-slide img{max-height:52vh;}
+}
+
 /* system config sub-cards */
 .sys{display:grid;gap:10px;}
 .sys-item{border:1px solid var(--line);border-radius:11px;padding:15px 17px;background:var(--bg-soft);}
@@ -1150,6 +1201,24 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
 
   <div data-id="p1" data-tag="TEAM PROJECT · 2인 · ROS 2" data-award="관통 프로젝트 우수상 · 2등 · SSAFY 15기" data-title="멀티로봇 협업 기반 무인 분실물 센터">
     <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <video src="media/lostfound-pickup.mp4" poster="media/lostfound-pickup-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"></video>
+        <figcaption>① 분실물 습득 — 비전 인식·분류 후 Dobot이 창고에 적재</figcaption>
+      </figure>
+      <figure class="media">
+        <video src="media/lostfound-report.mp4" poster="media/lostfound-report-poster.jpg"
+               muted loop playsinline preload="none" controls></video>
+        <figcaption>② 분실 신고 접수 — 시간·장소·설명을 받아 매칭 후보로 등록</figcaption>
+      </figure>
+      <figure class="media">
+        <video src="media/lostfound-return.mp4" poster="media/lostfound-return-poster.jpg"
+               muted loop playsinline preload="none" controls></video>
+        <figcaption>③ 분실물 수령 — 매칭 성공 후 TurtleBot이 반환 창구까지 운반 (2배속)</figcaption>
+      </figure>
+    </div>
+    <div class="blk">
       <h3 class="blk-h">문제 정의</h3>
       <p>분실물의 접수·인식·보관·반환 과정이 사람 손을 많이 타고 대기 시간이 길다는 점에 착안해, 사람 개입을 최소화한 멀티로봇 협업 관리 시스템을 구현했습니다. 2인 팀 프로젝트로, <b>컴퓨터 비전 · 매칭 알고리즘 · TurtleBot 자율주행</b>을 담당했습니다.</p>
     </div>
@@ -1267,25 +1336,6 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
     </div>
 
     <div class="blk">
-      <h3 class="blk-h">시연</h3>
-      <figure class="media">
-        <video src="media/lostfound-pickup.mp4" poster="media/lostfound-pickup-poster.jpg"
-               autoplay muted loop playsinline preload="metadata"></video>
-        <figcaption>① 분실물 습득 — 비전 인식·분류 후 Dobot이 창고에 적재</figcaption>
-      </figure>
-      <figure class="media">
-        <video src="media/lostfound-report.mp4" poster="media/lostfound-report-poster.jpg"
-               muted loop playsinline preload="none" controls></video>
-        <figcaption>② 분실 신고 접수 — 시간·장소·설명을 받아 매칭 후보로 등록</figcaption>
-      </figure>
-      <figure class="media">
-        <video src="media/lostfound-return.mp4" poster="media/lostfound-return-poster.jpg"
-               muted loop playsinline preload="none" controls></video>
-        <figcaption>③ 분실물 수령 — 매칭 성공 후 TurtleBot이 반환 창구까지 운반 (2배속)</figcaption>
-      </figure>
-    </div>
-
-    <div class="blk">
       <h3 class="blk-h">사용 기술</h3>
       <div class="chips">
         <span class="chip">Python</span><span class="chip">ROS 2</span><span class="chip">YOLOv8</span>
@@ -1296,6 +1346,21 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
   </div>
 
   <div data-id="p2" data-tag="EMBEDDED PROJECT · ATmega128" data-award="전자공학 공학설계 경진대회 은상 · 국민대학교 창의공과대학 · 2023.01" data-title="ATmega128을 사용한 안전한 전동 킥보드 시스템">
+    <!-- ============ 시연 미디어 ============
+         아래 블록을 감싼 주석 기호 두 개를 지우면 시연 영역이 나타납니다.
+         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다.
+         <figure class="media"> 를 여러 개 넣으면 자동으로 좌우 슬라이드가 됩니다. -->
+
+    <!-- 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <video src="media/scooter-demo.mp4" poster="media/scooter-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"></video>
+        <figcaption>헬멧·음주·양손 파지 조건 검사 후 주행 시작</figcaption>
+      </figure>
+    </div>
+    -->
     <div class="blk">
       <h3 class="blk-h">문제 정의</h3>
       <p>최소한의 안전 수칙을 지키지 않아 더 큰 사고로 이어지는 상황을 줄이기 위해, <b>안전 조건을 만족해야만 작동하는</b> 킥보드 시스템을 구현했습니다.</p>
@@ -1428,20 +1493,6 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
       </div>
     </div>
 
-    <!-- ============ 시연 미디어 ============
-         아래 4가지 중 쓸 것 하나만 골라, 그 블록을 감싼 주석 기호 두 개를 지우세요.
-         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다. -->
-
-    <!-- (1) 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
-    <div class="blk">
-      <h3 class="blk-h">시연</h3>
-      <figure class="media">
-        <video src="media/scooter-demo.mp4" poster="media/scooter-poster.jpg"
-               autoplay muted loop playsinline preload="metadata"></video>
-        <figcaption>헬멧·음주·양손 파지 조건 검사 후 주행 시작</figcaption>
-      </figure>
-    </div>
-    -->
     <div class="blk">
       <h3 class="blk-h">사용 기술</h3>
       <div class="chips">
@@ -1464,6 +1515,21 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
   </div>
 
   <div data-id="p3" data-tag="TEAM PROJECT · ROS · PX4 · Jetson Nano" data-award="2024 하계통신학회 참가·발표" data-award-kind="talk" data-title="타겟 드론 Following 드론 시스템">
+    <!-- ============ 시연 미디어 ============
+         아래 블록을 감싼 주석 기호 두 개를 지우면 시연 영역이 나타납니다.
+         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다.
+         <figure class="media"> 를 여러 개 넣으면 자동으로 좌우 슬라이드가 됩니다. -->
+
+    <!-- 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <video src="media/drone-demo.mp4" poster="media/drone-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"></video>
+        <figcaption>타겟 드론 검출과 20Hz 추종 비행</figcaption>
+      </figure>
+    </div>
+    -->
     <div class="blk">
       <h3 class="blk-h">문제 정의</h3>
       <p>비행 중인 타겟 드론을 실내에서 안정적으로 인식하고 자동으로 추적하는 시스템입니다. GPS를 쓸 수 없는 실내 환경에서 <b>절대 위치 추정 없이, 카메라가 본 상대 위치만으로</b> 팔로잉을 구현했습니다.</p>
@@ -1598,20 +1664,6 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
       <p><b>2024 하계통신학회</b> 참가·발표. 가장 많이 받은 질문은 "왜 SLAM이 아니라 카메라인가"였고, 타겟 팔로잉이라는 목적에는 상대 위치 계산이 더 단순하고 적합하다는 점으로 답했습니다.</p>
     </div>
 
-    <!-- ============ 시연 미디어 ============
-         아래 4가지 중 쓸 것 하나만 골라, 그 블록을 감싼 주석 기호 두 개를 지우세요.
-         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다. -->
-
-    <!-- (1) 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
-    <div class="blk">
-      <h3 class="blk-h">시연</h3>
-      <figure class="media">
-        <video src="media/drone-demo.mp4" poster="media/drone-poster.jpg"
-               autoplay muted loop playsinline preload="metadata"></video>
-        <figcaption>타겟 드론 검출과 20Hz 추종 비행</figcaption>
-      </figure>
-    </div>
-    -->
     <div class="blk">
       <h3 class="blk-h">사용 기술</h3>
       <div class="chips">
@@ -1623,6 +1675,14 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
   </div>
 
   <div data-id="p4" data-tag="TEAM PROJECT · Deep Learning · Web" data-award="전자공학 창의설계 경진대회 장려상 · 국민대학교 창의공과대학 · 2024.06" data-title="Facial Emotion Detect 노래 추천 웹사이트">
+    <div class="blk">
+      <h3 class="blk-h">시연</h3>
+      <figure class="media">
+        <video src="media/emotion-demo.mp4" poster="media/emotion-demo-poster.jpg"
+               muted loop playsinline preload="none" controls></video>
+        <figcaption>표정 인식 → 사용자 식별 → 감정 기반 음악 추천</figcaption>
+      </figure>
+    </div>
     <div class="blk">
       <h3 class="blk-h">문제 정의</h3>
       <p>사용자의 표정에서 감정을 예측하고, 사용자 이력까지 반영해 감정 기반 음악을 추천하는 웹사이트를 구현했습니다.</p>
@@ -1724,15 +1784,6 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
           <ul><li>정면 표정 위주로 학습해 <b>측면이나 가림이 있는 얼굴</b>에는 취약합니다. 다양한 각도의 데이터 보강이 필요합니다.</li></ul>
         </div>
       </div>
-    </div>
-
-    <div class="blk">
-      <h3 class="blk-h">시연</h3>
-      <figure class="media">
-        <video src="media/emotion-demo.mp4" poster="media/emotion-demo-poster.jpg"
-               muted loop playsinline preload="none" controls></video>
-        <figcaption>표정 인식 → 사용자 식별 → 감정 기반 음악 추천</figcaption>
-      </figure>
     </div>
 
     <div class="blk">
@@ -1854,7 +1905,96 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
 
   function playMedia(){
     [].slice.call(bd.querySelectorAll('video[autoplay]')).forEach(function(v){
+      if(v.closest && v.closest('.car-slide')) return;   // 캐러셀은 자체 로직으로 재생합니다
       var pr=v.play(); if(pr&&pr.catch){pr.catch(function(){});}
+    });
+  }
+
+  /* ---------- 미디어 캐러셀 ----------
+     한 블록 안에 <figure class="media"> 가 2개 이상이면 자동으로 좌우 슬라이드가 됩니다. */
+  var CAR_L='<svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>';
+  var CAR_R='<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>';
+
+  function buildCarousels(root){
+    [].slice.call(root.querySelectorAll('.blk')).forEach(function(blk){
+      var figs=[].slice.call(blk.children).filter(function(el){
+        return el.nodeType===1 && el.classList.contains('media');
+      });
+      if(figs.length<2) return;
+
+      var caps=[];
+      var car=document.createElement('div');   car.className='carousel';
+      var view=document.createElement('div');  view.className='car-view';
+      var track=document.createElement('div'); track.className='car-track'; track.tabIndex=0;
+
+      figs.forEach(function(fig){
+        var slide=document.createElement('div'); slide.className='car-slide';
+        var fc=fig.querySelector('figcaption');
+        caps.push(fc?fc.innerHTML:'');
+        if(fc) fc.parentNode.removeChild(fc);
+        while(fig.firstChild) slide.appendChild(fig.firstChild);
+        track.appendChild(slide);
+      });
+
+      var prev=document.createElement('button');
+      prev.type='button'; prev.className='car-nav prev';
+      prev.setAttribute('aria-label','이전'); prev.innerHTML=CAR_L;
+      var next=document.createElement('button');
+      next.type='button'; next.className='car-nav next';
+      next.setAttribute('aria-label','다음'); next.innerHTML=CAR_R;
+      var count=document.createElement('div'); count.className='car-count';
+      view.appendChild(track); view.appendChild(prev); view.appendChild(next); view.appendChild(count);
+
+      var foot=document.createElement('div'); foot.className='car-foot';
+      var capEl=document.createElement('p');  capEl.className='car-cap';
+      var dots=document.createElement('div'); dots.className='car-dots';
+      caps.forEach(function(_,i){
+        var d=document.createElement('button');
+        d.type='button'; d.setAttribute('aria-label',(i+1)+'번 미디어');
+        d.addEventListener('click',function(){go(i);});
+        dots.appendChild(d);
+      });
+      foot.appendChild(capEl); foot.appendChild(dots);
+      car.appendChild(view); car.appendChild(foot);
+
+      blk.insertBefore(car,figs[0]);
+      figs.forEach(function(f){f.parentNode.removeChild(f);});
+
+      var vids=[].slice.call(track.querySelectorAll('video'));
+      var cur=-1;
+      function render(i){
+        if(i<0||i>=caps.length||i===cur) return;
+        cur=i;
+        capEl.innerHTML=caps[i]||'';
+        count.textContent=(i+1)+' / '+caps.length;
+        prev.disabled=(i<=0); next.disabled=(i>=caps.length-1);
+        [].slice.call(dots.children).forEach(function(d,j){d.classList.toggle('on',j===i);});
+        vids.forEach(function(v){
+          var idx=[].indexOf.call(track.children, v.closest('.car-slide'));
+          if(idx===i){
+            if(v.hasAttribute('autoplay')){var p=v.play(); if(p&&p.catch){p.catch(function(){});}}
+          }else{
+            try{v.pause();}catch(e){}
+          }
+        });
+      }
+      function go(i){
+        i=Math.max(0,Math.min(caps.length-1,i));
+        var x=track.clientWidth*i;
+        if(track.scrollTo){track.scrollTo({left:x,behavior:'smooth'});}else{track.scrollLeft=x;}
+        render(i);
+      }
+      prev.addEventListener('click',function(){go(cur-1);});
+      next.addEventListener('click',function(){go(cur+1);});
+      var raf=0;
+      track.addEventListener('scroll',function(){
+        if(raf) return;
+        raf=requestAnimationFrame(function(){
+          raf=0;
+          render(Math.round(track.scrollLeft/(track.clientWidth||1)));
+        });
+      },{passive:true});
+      render(0);
     });
   }
   function animateBars(){
@@ -1929,6 +2069,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
     }
     bd.classList.add('open');
     document.body.style.overflow='hidden';
+    buildCarousels(paneOv);
     animateBars();
     document.getElementById('modalX').focus();
   }
