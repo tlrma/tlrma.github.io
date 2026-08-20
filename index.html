@@ -1376,21 +1376,34 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
   </div>
 
   <div data-id="p2" data-tag="EMBEDDED PROJECT · ATmega128" data-award="전자공학 공학설계 경진대회 은상 · 국민대학교 창의공과대학 · 2023.01" data-title="ATmega128을 사용한 안전한 전동 킥보드 시스템">
-    <!-- ============ 시연 미디어 ============
-         아래 블록을 감싼 주석 기호 두 개를 지우면 시연 영역이 나타납니다.
-         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다.
-         <figure class="media"> 를 여러 개 넣으면 자동으로 좌우 슬라이드가 됩니다. -->
-
-    <!-- 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
     <div class="blk">
       <h3 class="blk-h">시연</h3>
       <figure class="media">
-        <video src="media/scooter-demo.mp4" poster="media/scooter-poster.jpg"
+        <video src="media/scooter-1-normal.mp4" poster="media/scooter-1-normal-poster.jpg"
                autoplay muted loop playsinline preload="metadata"></video>
-        <figcaption>헬멧·음주·양손 파지 조건 검사 후 주행 시작</figcaption>
+        <figcaption>① 정상 작동 — 세 조건을 모두 만족해 주행 시작</figcaption>
+      </figure>
+      <figure class="media">
+        <video src="media/scooter-2-helmet.mp4" poster="media/scooter-2-helmet-poster.jpg"
+               muted loop playsinline preload="none" controls></video>
+        <figcaption>② 주행 중 헬멧을 벗으면 자동 반납</figcaption>
+      </figure>
+      <figure class="media">
+        <video src="media/scooter-3-alcohol.mp4" poster="media/scooter-3-alcohol-poster.jpg"
+               muted loop playsinline preload="none" controls></video>
+        <figcaption>③ 주행 중 알코올 농도가 기준치를 넘으면 자동 반납</figcaption>
+      </figure>
+      <figure class="media">
+        <video src="media/scooter-4-blocked.mp4" poster="media/scooter-4-blocked-poster.jpg"
+               muted loop playsinline preload="none" controls></video>
+        <figcaption>④ 알코올 농도 초과 상태에서는 대여 자체가 불가</figcaption>
+      </figure>
+      <figure class="media">
+        <video src="media/scooter-5-inspect.mp4" poster="media/scooter-5-inspect-poster.jpg"
+               muted loop playsinline preload="none" controls></video>
+        <figcaption>⑤ 안전 검사 단계가 끝나기 전에는 주행 불가</figcaption>
       </figure>
     </div>
-    -->
     <div class="blk">
       <h3 class="blk-h">문제 정의</h3>
       <p>최소한의 안전 수칙을 지키지 않아 더 큰 사고로 이어지는 상황을 줄이기 위해, <b>안전 조건을 만족해야만 작동하는</b> 킥보드 시스템을 구현했습니다.</p>
@@ -1545,21 +1558,14 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
   </div>
 
   <div data-id="p3" data-tag="TEAM PROJECT · ROS · PX4 · Jetson Nano" data-award="2024 하계통신학회 참가·발표" data-award-kind="talk" data-title="타겟 드론 Following 드론 시스템">
-    <!-- ============ 시연 미디어 ============
-         아래 블록을 감싼 주석 기호 두 개를 지우면 시연 영역이 나타납니다.
-         파일은 레포의 media/ 폴더에 올리고 파일명만 바꾸면 됩니다.
-         <figure class="media"> 를 여러 개 넣으면 자동으로 좌우 슬라이드가 됩니다. -->
-
-    <!-- 동영상 mp4 : 소리 없이 자동 재생되고 반복됩니다
     <div class="blk">
       <h3 class="blk-h">시연</h3>
       <figure class="media">
         <video src="media/drone-demo.mp4" poster="media/drone-poster.jpg"
                autoplay muted loop playsinline preload="metadata"></video>
-        <figcaption>타겟 드론 검출과 20Hz 추종 비행</figcaption>
+        <figcaption>타겟 드론 검출과 20Hz 추종 비행 — 좌측은 후방 카메라와 제어 터미널</figcaption>
       </figure>
     </div>
-    -->
     <div class="blk">
       <h3 class="blk-h">문제 정의</h3>
       <p>비행 중인 타겟 드론을 실내에서 안정적으로 인식하고 자동으로 추적하는 시스템입니다. GPS를 쓸 수 없는 실내 환경에서 <b>절대 위치 추정 없이, 카메라가 본 상대 위치만으로</b> 팔로잉을 구현했습니다.</p>
