@@ -239,7 +239,7 @@ h1.hero-name .role{
 .about-body strong{color:var(--fg);font-weight:700;}
 .mark{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--fg) 14%,transparent) 0);padding:0 2px;}
 /* ============ SKILLS ============ */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;align-items:stretch;grid-auto-rows:1fr;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;align-items:stretch;}
 .skill-card{
   border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:24px;
   display:flex;flex-direction:column;
@@ -252,9 +252,8 @@ h1.hero-name .role{
 }
 .skill-ico svg{width:17px;height:17px;stroke:var(--fg);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
 .skill-card h3{margin:0;font-size:15px;font-weight:700;letter-spacing:-.01em;}
-.skill-note{margin:0 0 16px;font-size:12.5px;line-height:1.55;color:var(--muted);padding-left:43px;min-height:calc(2 * 1.55em);}
+.skill-note{margin:0 0 10px;font-size:12.5px;line-height:1.55;color:var(--muted);min-height:calc(2 * 1.55em);}
 .chips{display:flex;flex-wrap:wrap;gap:7px;}
-@media(max-width:640px){.skills-grid{grid-auto-rows:auto;}}
 .chip{
   font-family:var(--mono);font-size:11.5px;font-weight:500;padding:5px 10px;border-radius:7px;
   background:var(--chip);color:var(--fg-2);border:1px solid transparent;
@@ -365,12 +364,15 @@ h1.hero-name .role{
 .blk th{background:var(--bg-soft);color:var(--fg);font-weight:650;font-size:11.5px;white-space:nowrap;letter-spacing:.01em;}
 .blk td{color:var(--fg-2);}
 .blk td b{color:var(--fg);}
+.sys-item .pick{font-family:var(--mono);font-size:10px;font-weight:500;background:var(--fg);color:var(--bg);padding:2px 6px;border-radius:5px;letter-spacing:.04em;margin-left:2px;white-space:nowrap;}
 .sys-item h4 .lim{font-family:var(--mono);font-size:10px;font-weight:500;background:transparent;border:1px solid var(--line);color:var(--muted);padding:2px 7px;border-radius:5px;letter-spacing:.05em;}
 
 /* ---- 미디어 (동영상 · GIF · 이미지) ---- */
 .media{margin:0;}
 .media + .media{margin-top:14px;}
+.sys + .media,.sys + .carousel{margin-top:16px;}
 .media-grid .media + .media{margin-top:0;}
+.media a.zoom,.car-slide a.zoom{display:block;width:100%;cursor:zoom-in;}
 .media video,.media img{
   width:100%;display:block;border-radius:12px;border:1px solid var(--line);
   background:var(--bg-soft);
@@ -854,17 +856,6 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
 
       <div class="skill-card rv">
         <div class="skill-head">
-          <span class="skill-ico"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
-          <h3>Languages</h3>
-        </div>
-        <p class="skill-note">C로는 ISR까지, C++로는 알고리즘, Python으로는 노드와 학습까지</p>
-        <div class="chips">
-          <span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span>
-        </div>
-      </div>
-
-      <div class="skill-card rv" data-d="1">
-        <div class="skill-head">
           <span class="skill-ico"><svg viewBox="0 0 24 24"><rect x="5" y="9" width="14" height="11" rx="2"/><path d="M12 9V5M9 3h6M9 14h.01M15 14h.01"/></svg></span>
           <h3>Robotics · Middleware</h3>
         </div>
@@ -875,7 +866,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
       </div>
 
-      <div class="skill-card rv" data-d="2">
+      <div class="skill-card rv" data-d="1">
         <div class="skill-head">
           <span class="skill-ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></span>
           <h3>Embedded · Hardware</h3>
@@ -887,18 +878,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
       </div>
 
-      <div class="skill-card rv" data-d="3">
-        <div class="skill-head">
-          <span class="skill-ico"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-          <h3>Vision · AI</h3>
-        </div>
-        <p class="skill-note">데이터 수집부터 학습·튜닝, 실시간 추론 최적화까지</p>
-        <div class="chips">
-          <span class="chip">YOLO</span><span class="chip">OpenCV</span><span class="chip">PyTorch</span>
-        </div>
-      </div>
-
-      <div class="skill-card rv" data-d="4">
+      <div class="skill-card rv" data-d="2">
         <div class="skill-head">
           <span class="skill-ico"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg></span>
           <h3>Web · Backend</h3>
@@ -910,7 +890,29 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
         </div>
       </div>
 
-      <div class="skill-card rv" data-d="4">
+      <div class="skill-card rv">
+        <div class="skill-head">
+          <span class="skill-ico"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+          <h3>Languages</h3>
+        </div>
+        <p class="skill-note">C로는 ISR까지, C++로는 알고리즘, Python으로는 노드와 학습까지</p>
+        <div class="chips">
+          <span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span>
+        </div>
+      </div>
+
+      <div class="skill-card rv" data-d="1">
+        <div class="skill-head">
+          <span class="skill-ico"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <h3>Vision · AI</h3>
+        </div>
+        <p class="skill-note">데이터 수집부터 학습·튜닝, 실시간 추론 최적화까지</p>
+        <div class="chips">
+          <span class="chip">YOLO</span><span class="chip">OpenCV</span><span class="chip">PyTorch</span>
+        </div>
+      </div>
+
+      <div class="skill-card rv" data-d="2">
         <div class="skill-head">
           <span class="skill-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.9 6.9a2.12 2.12 0 01-3-3l6.9-6.9a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span>
           <h3>Tools</h3>
@@ -1296,7 +1298,35 @@ footer{border-top:1px solid var(--line);padding:30px 0;}
             <li>목적지를 named pose로 등록해 상위 로직은 좌표 대신 이름으로 명령</li>
           </ul>
         </div>
+        <div class="sys-item">
+          <h4>용도별 LLM 모델 선정</h4>
+          <ul>
+            <li>매칭은 신고 1건당 같은 카테고리 물건 수만큼 반복 호출되고, 묘사는 물건 등록 시 1회만 호출됩니다</li>
+            <li>호출 빈도가 다르므로 하나의 기준으로 고르지 않고, 매칭은 <b>정확도·비용</b>, 묘사는 <b>정밀도</b>를 우선 기준으로 분리</li>
+            <li><b>텍스트 매칭</b> — 후보 5종을 1:1 매칭과 8개 케이스 풀 매칭으로 돌려 정답률·응답속도·크레딧 측정 → <b>gpt-4o-mini</b> <span class="pick">2C</span>
+              <ul>
+                <li>두 테스트 모두 100% 정답, 평균 응답 1.94s</li>
+                <li>정답률이 같은 gpt-4.1-mini 대비 크레딧 절반</li>
+                <li>gpt-5-nano는 정답률 75%에 응답도 10초대라 제외</li>
+              </ul>
+            </li>
+            <li><b>이미지 묘사</b> — 세부 특징이 많은 같은 사진을 5종에 동일하게 넣고 식별 정확도 비교 → <b>gemini-3.5-flash</b> <span class="pick">18C</span>
+              <ul>
+                <li>이름·카드번호까지 읽어내 후보 중 가장 정밀</li>
+                <li>gemini-2.5-flash와 성능은 동등하면서 12C 저렴</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
+      <figure class="media">
+        <a class="zoom" href="media/lostfound-llm-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="media/lostfound-llm-1.png" alt="용도별 LLM 모델 선정 방법론 — 후보 선정과 테스트 설계" loading="lazy"></a>
+        <figcaption>① 선정 방법론 — 용도별 후보 5종과 테스트 설계</figcaption>
+      </figure>
+      <figure class="media">
+        <a class="zoom" href="media/lostfound-llm-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="media/lostfound-llm-2.png" alt="LLM 모델 비교 결과 — 정확도·응답속도·크레딧" loading="lazy"></a>
+        <figcaption>② 측정 결과 — 정확도·응답속도·묘사 길이·크레딧 비교와 채택 근거</figcaption>
+      </figure>
     </div>
 
     <div class="blk">
